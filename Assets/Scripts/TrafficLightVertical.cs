@@ -35,17 +35,14 @@ public class OppositeTrafficLight : MonoBehaviour
         {
             while (true)
             {
-                // Red light for 10 seconds
-                yield return new WaitForSeconds(13f);
-                SetTrafficLight(LightState.Green);
-                // Change to green for 10 seconds
-                yield return new WaitForSeconds(10f);
-                // Change to orange for 3 seconds
-                SetTrafficLight(LightState.Orange);
-                yield return new WaitForSeconds(3f);
-                // Change back to red
-                SetTrafficLight(LightState.Red);
-            }
+            // Red light for 10 seconds (opposite of Green on the first light)
+            yield return new WaitForSeconds(13f);
+            SetTrafficLight(LightState.Green); // Green light for 7 seconds (opposite of Red on the first light)
+            yield return new WaitForSeconds(10f);
+            SetTrafficLight(LightState.Orange); // Orange light for 3 seconds (transition phase)
+            yield return new WaitForSeconds(3f);
+            SetTrafficLight(LightState.Red);
+        }
         }
 
         void SetTrafficLight(LightState color)

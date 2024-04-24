@@ -20,6 +20,10 @@ public class Pedestrian : MonoBehaviour
     private State currentState = State.Waiting;
     private bool movingRight = true;
 
+    //Timer for destroying the object
+    private float destroyTimer = 0f;
+    private bool shouldDestroy = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -31,10 +35,14 @@ public class Pedestrian : MonoBehaviour
                 // If the light is green and people are waiting, start crossing
                 currentState = State.Crossing;
             }
-            else if (trafficLight.indexOfCurrColor != 3 && currentState == State.Crossing)
+            else if (trafficLight.indexOfCurrColor == 1 && currentState == State.Crossing)
             {
                 // If the light is not green and people are crossing, stop them
                 currentState = State.Waiting;
+
+                //Start the timer for destruction
+                shouldDestroy = true;
+                destroyTimer = 0f;
             }
         }
 
@@ -58,6 +66,15 @@ public class Pedestrian : MonoBehaviour
             else if (transform.position.x <= leftBound)
             {
                 movingRight = true; // Change direction to move right
+            }
+        }
+
+        if (shouldDestroy)
+        {
+            destroyTimer += Time.deltaTime;
+            if (destroyTimer >= 0f)
+            {
+                Destroy(gameObject);
             }
         }
     }
