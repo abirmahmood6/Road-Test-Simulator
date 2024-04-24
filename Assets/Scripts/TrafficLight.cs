@@ -37,7 +37,7 @@ public class TrafficLight : MonoBehaviour
             yield return new WaitForSeconds(3f);
             // Change to red for 10 seconds
             SetTrafficLight(LightColor.Red);
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(13f);
             // Loop back to green
             SetTrafficLight(LightColor.Green);
         }
