@@ -15,7 +15,9 @@ public class Car : MonoBehaviour
     private float currentSpeed = 0f;
     private float currentTurn = 0f;
 
+    private bool hasParked = false;
 
+    public Collider2D parkingSpaceCollider;
 
     void Start()
     {
@@ -25,6 +27,8 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hasParked)
+            return;
 
         // Brake takes priority
         if (Input.GetKey(KeyCode.B))
@@ -84,6 +88,26 @@ public class Car : MonoBehaviour
         currentTurn = horizontalInput * turnSpeed * Time.deltaTime;
 
         transform.Rotate(Vector3.forward * -currentTurn);
+
+        if (!hasParked && parkingSpaceCollider != null && parkingSpaceCollider.bounds.Contains(transform.position))
+        {
+            if (IsProperlyAligned())
+            {
+                Debug.Log("Car parked Succesfully!");
+                hasParked = true;
+            }
+
+            else
+            {
+                Debug.Log("Car parked, but not aligned properly!");
+                transform.position = Vector3.zero;
+            }
+        }
+    }
+
+    private bool IsProperlyAligned()
+    {
+        return Mathf.Abs(transform.eulerAngles.z) < 5f;
     }
 
 
