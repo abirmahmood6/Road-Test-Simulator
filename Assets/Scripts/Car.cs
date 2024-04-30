@@ -12,6 +12,10 @@ public class Car : MonoBehaviour
     [SerializeField] float brakeSpeed = 5f;
     [SerializeField] float turnSpeed = 100f;
 
+    // Reference to the parking progress slider
+    public UnityEngine.UI.Slider parkingProgressSlider;
+
+
     private float currentSpeed = 0f;
     private float currentTurn = 0f;
 
@@ -89,28 +93,25 @@ public class Car : MonoBehaviour
 
         transform.Rotate(Vector3.forward * -currentTurn);
 
-        if (!hasParked && parkingSpaceCollider != null && parkingSpaceCollider.bounds.Contains(transform.position))
+        // Check if the car is inside the parking lot
+        if (parkingSpaceCollider != null && parkingSpaceCollider.bounds.Contains(transform.position))
         {
-            if (IsProperlyAligned())
-            {
-                Debug.Log("Car parked Succesfully!");
-                hasParked = true;
-            }
+            float distanceToEnter = Vector2.Distance(transform.position, parkingSpaceCollider.bounds.min);
+            float totalDistance = Vector2.Distance(parkingSpaceCollider.bounds.min, parkingSpaceCollider.bounds.max);
+            float parkingProgress = (distanceToEnter / totalDistance) * 100f;
 
-            else
+            // Update the parking progress slider value
+            parkingProgressSlider.value = parkingProgress;
+
+            // Check if parking is complete
+            if (parkingProgress >= 100f)
             {
-                Debug.Log("Car parked, but not aligned properly!");
-                transform.position = Vector3.zero;
+                hasParked = true;
+                Debug.Log("Parking complete!");
             }
         }
+
     }
-
-    private bool IsProperlyAligned()
-    {
-        return Mathf.Abs(transform.eulerAngles.z) < 5f;
-    }
-
-
 
 }
 
