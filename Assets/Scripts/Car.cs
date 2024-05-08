@@ -1,7 +1,12 @@
+/* /* This Car class represent the player car which takes input from the keyboard
+ * and move the car accordingly.*/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class Car : MonoBehaviour
 {
@@ -12,10 +17,13 @@ public class Car : MonoBehaviour
     [SerializeField] float brakeSpeed = 5f;
     [SerializeField] float turnSpeed = 100f;
 
+    // UnityEvent for displaying messages
+    public UnityEvent<string> displayMessageEvent;
+
     // Reference to the parking progress slider
     public UnityEngine.UI.Slider parkingProgressSlider;
 
-
+    private int score = 30;
     private float currentSpeed = 0f;
     private float currentTurn = 0f;
 
@@ -25,8 +33,24 @@ public class Car : MonoBehaviour
 
     void Start()
     {
+        // Initialize the display message event
+        if (displayMessageEvent == null)
+            displayMessageEvent = new UnityEvent<string>();
 
+        // Find MessageDisplay object in the scene
+        MessageDisplay messageDisplay = FindObjectOfType<MessageDisplay>();
+        if (messageDisplay != null)
+        {
+            // Connect the display message event to the message display method
+            displayMessageEvent.AddListener(messageDisplay.DisplayMessage);
+        }
+        else
+        {
+            Debug.LogError("MessageDisplay object not found in the scene!");
+        }
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -112,6 +136,48 @@ public class Car : MonoBehaviour
         }
 
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("RoadBoundry"))
+        {
+            AddScore(5);
+            displayMessageEvent.Invoke("Collided with road!");
+        }
+        else if (collision.gameObject.CompareTag("Pedestrian"))
+        {
+            AddScore(5);
+            displayMessageEvent.Invoke("Collided with pedestrian!");
+        }
+        else if (collision.gameObject.CompareTag("AI"))
+        {
+            AddScore(5);
+            displayMessageEvent.Invoke("Collided with AI car!");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Pedestrian"))
+        {
+            AddScore(30);
+            displayMessageEvent.Invoke("Collided with pedestrian!");
+        }
+        else if (other.CompareTag("TrafficLight"))
+        {
+            AddScore(5);
+            displayMessageEvent.Invoke("Collided with traffic light!");
+        }
+    }
+
+    void AddScore(int points)
+    {
+        if (score > 30)
+        score -= points;
+        // Update the score display or send it wherever you need
+        Debug.Log("Current score: " + score);
+    }
+
 
 }
 

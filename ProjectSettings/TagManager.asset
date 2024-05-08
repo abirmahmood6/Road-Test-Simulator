@@ -6,6 +6,11 @@ TagManager:
   tags:
   - ParkingSpace
   - Car
+  - Cones
+  - AI
+  - RoadBoundry
+  - Pedestrian
+  - TrafficLight
   layers:
   - Default
   - TransparentFX

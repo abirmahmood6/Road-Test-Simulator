@@ -70,13 +70,13 @@ public class Pedestrian_Ver : MonoBehaviour
             }
         }
 
-            if (shouldDestroy)
+            /*if (shouldDestroy)
             {
                 destroyTimer += Time.deltaTime;
                 if (destroyTimer >= 0f)
                 {
                     Destroy(gameObject);
                 }
-            }
+            }*/
     }
 }

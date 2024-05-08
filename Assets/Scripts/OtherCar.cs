@@ -1,7 +1,11 @@
+/* This OtherCar same as Ai Car is an auto piloted car that moves
+ * respecting the Pedestrian and the traffic light*/
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class OtherCar : MonoBehaviour
@@ -12,6 +16,7 @@ public class OtherCar : MonoBehaviour
 
     // Reference to the traffic light
     public OppositeTrafficLight[] trafficLights;
+
 
     // Speed of the car
     public float moveSpeed = 5f;
@@ -25,12 +30,14 @@ public class OtherCar : MonoBehaviour
     //
     public float minDistance = 2f;
 
-    //
-    public LayerMask oobstacleLayer; 
-
     public Car carInFront;
 
     //safeDistance = 2f;
+
+    private void Start()
+    {
+        Destroy(gameObject, 25f);
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,6 +57,7 @@ public class OtherCar : MonoBehaviour
                 // Move to the next point on the line
                 currentIndex = (currentIndex + 1) % lineRenderer.positionCount;
             }
+            
         }
 
         //foreach (OppositeTrafficLight trafficLight in trafficLights)
@@ -63,7 +71,7 @@ public class OtherCar : MonoBehaviour
                 float distanceToTrafficLight = Vector3.Distance(transform.position, trafficLight.transform.position);
 
                 // Check if the traffic light is red and the car is close to it
-                if ((trafficLight.indexOfCurrColor == 1 && distanceToTrafficLight < stopDistance) || distanceToCarInfront < minDistance)
+                if (distanceToCarInfront < minDistance || (trafficLight.indexOfCurrColor == 1 && distanceToTrafficLight < stopDistance))
                 {
                     // Stop the car
                     moveSpeed = 0f;
@@ -93,6 +101,8 @@ public class OtherCar : MonoBehaviour
             //transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
         }
     }
+
+    
 }
 
     /*

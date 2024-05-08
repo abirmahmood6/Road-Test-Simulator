@@ -212,9 +212,6 @@ MonoBehaviour:
   moveSpeed: 0.3
   stopDistance: 8.5
   minDistance: 2
-  oobstacleLayer:
-    serializedVersion: 2
-    m_Bits: 64
   carInFront: {fileID: 0}
 --- !u!61 &90372653480181611
 BoxCollider2D:
