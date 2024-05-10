@@ -11,6 +11,9 @@ TagManager:
   - RoadBoundry
   - Pedestrian
   - TrafficLight
+  - TrafficLight_Ver
+  - StopSignTrigger
+  - StopSignTriggerOnce
   layers:
   - Default
   - TransparentFX

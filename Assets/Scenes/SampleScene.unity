@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 459086}
   - component: {fileID: 459087}
+  - component: {fileID: 459088}
   m_Layer: 0
   m_Name: TrafficLight Vertical (1)
-  m_TagString: Untagged
+  m_TagString: TrafficLight_Ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,6 +178,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &459088
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459085}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.1903334, y: -6.2789555}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.849615, y: 0.7079563}
+  m_EdgeRadius: 0
 --- !u!1 &3145211
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +490,83 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &20522309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20522310}
+  - component: {fileID: 20522311}
+  m_Layer: 0
+  m_Name: SS1 (5)
+  m_TagString: StopSignTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &20522310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20522309}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 50.37, y: 10.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 828411508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &20522311
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20522309}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0397825, y: -0.09261227}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8846817, y: 0.81477547}
+  m_EdgeRadius: 0
 --- !u!1 &23417840
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +578,7 @@ GameObject:
   - component: {fileID: 23417841}
   m_Layer: 0
   m_Name: Vertical Traffic Light
-  m_TagString: Untagged
+  m_TagString: TrafficLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -695,10 +818,16 @@ MonoBehaviour:
   reverseSpeed: 3
   brakeSpeed: 5
   turnSpeed: 180
+  trafficLight_Ver: {fileID: 780788498}
+  trafficLight_Hor: {fileID: 459087}
   displayMessageEvent:
     m_PersistentCalls:
       m_Calls: []
-  parkingProgressSlider: {fileID: 935034197}
+  updateScoreEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  parkingSlider: {fileID: 935034197}
+  parkingLot: {fileID: 1543502158}
   parkingSpaceCollider: {fileID: 1543502156}
 --- !u!50 &70575423
 Rigidbody2D:
@@ -868,6 +997,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &73300107
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73300104}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.9914675, y: -7.612685}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6096058, y: 2.2269535}
+  m_EdgeRadius: 0
 --- !u!1001 &98277120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -919,6 +1093,10 @@ PrefabInstance:
     - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
       propertyPath: m_Name
       value: TrafficLight Vertical (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -978,6 +1156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -985,6 +1167,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1980927666}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1980927667}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!1 &145070895
 GameObject:
@@ -1559,6 +1744,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &265554123
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265554120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.0732193, y: -7.482999}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4926834, y: 2.36977}
+  m_EdgeRadius: 0
 --- !u!1001 &265958771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1611,6 +1841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1618,6 +1852,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 941291436}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 941291437}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!1 &287576259
 GameObject:
@@ -1927,6 +2164,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1884927634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &333579783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333579784}
+  - component: {fileID: 333579785}
+  m_Layer: 0
+  m_Name: SS1 (1)
+  m_TagString: StopSignTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333579784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333579783}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.0018958, w: 0.9999982}
+  m_LocalPosition: {x: 50.39, y: 24.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 828411508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.217}
+--- !u!61 &333579785
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333579783}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0397825, y: -0.09261227}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8846817, y: 0.81477547}
+  m_EdgeRadius: 0
 --- !u!1 &367631284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,9 +2607,10 @@ GameObject:
   m_Component:
   - component: {fileID: 482233982}
   - component: {fileID: 482233983}
+  - component: {fileID: 482233984}
   m_Layer: 0
   m_Name: TrafficLight Vertical (3)
-  m_TagString: Untagged
+  m_TagString: TrafficLight_Ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2337,6 +2652,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &482233984
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482233981}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.2289028, y: -6.2108746}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.753069, y: 0.79964876}
+  m_EdgeRadius: 0
 --- !u!4 &491194834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
@@ -2371,6 +2731,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &494300900
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494300897}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.950657, y: -7.458951}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.692009, y: 2.4521847}
+  m_EdgeRadius: 0
 --- !u!1 &503630137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,6 +2958,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 70575426}
   offset: {x: 0, y: 0, z: -10}
+--- !u!1 &519514355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519514357}
+  - component: {fileID: 519514356}
+  m_Layer: 0
+  m_Name: SS1
+  m_TagString: StopSignTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &519514356
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519514355}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0397825, y: -0.09261227}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8846817, y: 0.81477547}
+  m_EdgeRadius: 0
+--- !u!4 &519514357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519514355}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.989816, y: -5.945133, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 828411508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &519784892 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3664962369818625805, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
@@ -3070,9 +3552,10 @@ GameObject:
   m_Component:
   - component: {fileID: 643774275}
   - component: {fileID: 643774276}
+  - component: {fileID: 643774277}
   m_Layer: 0
   m_Name: TrafficLight Vertical (4)
-  m_TagString: Untagged
+  m_TagString: TrafficLight_Ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3114,6 +3597,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &643774277
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643774274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.2219563, y: -6.239438}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9301872, y: 0.55112076}
+  m_EdgeRadius: 0
 --- !u!1 &658155598
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,6 +3844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3323,6 +3855,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 265554122}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 265554123}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!1001 &668906501
 PrefabInstance:
@@ -3376,6 +3911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3383,6 +3922,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 73300106}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 73300107}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!1001 &680496632
 PrefabInstance:
@@ -3395,6 +3937,10 @@ PrefabInstance:
     - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_Name
       value: Cone (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+      propertyPath: m_TagString
+      value: Cones
       objectReference: {fileID: 0}
     - target: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3441,6 +3987,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+--- !u!1 &693260960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693260961}
+  - component: {fileID: 693260962}
+  m_Layer: 0
+  m_Name: SS1 (4)
+  m_TagString: StopSignTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &693260961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693260960}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.96, y: 11.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 828411508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &693260962
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693260960}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0397825, y: -0.09261227}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8846817, y: 0.81477547}
+  m_EdgeRadius: 0
 --- !u!1 &704141039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3873,9 +4496,10 @@ GameObject:
   m_Component:
   - component: {fileID: 760835239}
   - component: {fileID: 760835240}
+  - component: {fileID: 760835241}
   m_Layer: 0
   m_Name: TrafficLight Vertical (9)
-  m_TagString: Untagged
+  m_TagString: TrafficLight_Ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3917,6 +4541,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &760835241
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760835238}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.1036835, y: -6.336093}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.702982, y: 0.64938736}
+  m_EdgeRadius: 0
 --- !u!1 &762263897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,9 +4779,10 @@ GameObject:
   m_Component:
   - component: {fileID: 779646672}
   - component: {fileID: 779646673}
+  - component: {fileID: 779646674}
   m_Layer: 0
   m_Name: TrafficLight Vertical (8)
-  m_TagString: Untagged
+  m_TagString: TrafficLight_Ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4154,6 +4824,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &779646674
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779646671}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.1792812, y: -6.2857037}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9091225, y: 0.6037674}
+  m_EdgeRadius: 0
 --- !u!1 &780788496
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,9 +4879,10 @@ GameObject:
   m_Component:
   - component: {fileID: 780788497}
   - component: {fileID: 780788498}
+  - component: {fileID: 780788499}
   m_Layer: 0
   m_Name: TrafficLight Horizontal (8)
-  m_TagString: Untagged
+  m_TagString: TrafficLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4208,6 +4924,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &780788499
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780788496}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.948304, y: -7.597618}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.56209755, y: 3.1457253}
+  m_EdgeRadius: 0
 --- !u!1 &788137691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
@@ -4237,6 +4998,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &788137694
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788137691}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.0478535, y: -7.635196}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.64487076, y: 2.369769}
+  m_EdgeRadius: 0
 --- !u!1 &793570097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,6 +5127,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
   m_PrefabInstance: {fileID: 680496632}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &816880610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816880611}
+  - component: {fileID: 816880612}
+  m_Layer: 0
+  m_Name: SS1 (2)
+  m_TagString: StopSignTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &816880611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816880610}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.01, y: 25.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 828411508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &816880612
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816880610}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0397825, y: -0.09261227}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8846817, y: 0.81477547}
+  m_EdgeRadius: 0
 --- !u!1001 &822581539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4373,12 +5256,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Vertical (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
+--- !u!1 &828411507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828411508}
+  m_Layer: 0
+  m_Name: StopSigns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &828411508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828411507}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.839816, y: -13.014866, z: -0.17191763}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 519514357}
+  - {fileID: 333579784}
+  - {fileID: 693260961}
+  - {fileID: 816880611}
+  - {fileID: 20522310}
+  - {fileID: 969960279}
+  - {fileID: 2019304689}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &830473996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9158683099709278700, guid: 83505c6388a5248ee8fd166047af8034, type: 3}
@@ -4413,6 +5338,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &831176720
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831176717}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.030037, y: -7.568786}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7152786, y: 1.9965181}
+  m_EdgeRadius: 0
 --- !u!212 &860514220 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 225126241434620944, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
@@ -4429,6 +5399,10 @@ PrefabInstance:
     - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_Name
       value: Cone (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+      propertyPath: m_TagString
+      value: Cones
       objectReference: {fileID: 0}
     - target: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4754,9 +5728,10 @@ GameObject:
   m_Component:
   - component: {fileID: 889705852}
   - component: {fileID: 889705853}
+  - component: {fileID: 889705854}
   m_Layer: 0
   m_Name: TrafficLight Vertical (7)
-  m_TagString: Untagged
+  m_TagString: TrafficLight_Ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4798,6 +5773,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &889705854
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889705851}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.1659698, y: -6.3010044}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.881546, y: 0.7374573}
+  m_EdgeRadius: 0
 --- !u!1 &908648049
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,6 +5932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Vertical (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
@@ -5002,8 +6026,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 62178717}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5042,6 +6066,128 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &941291437
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941291434}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.01602, y: -7.550159}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5819969, y: 2.410756}
+  m_EdgeRadius: 0
+--- !u!1 &969960278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 969960279}
+  - component: {fileID: 969960280}
+  m_Layer: 0
+  m_Name: SS1 (3)
+  m_TagString: StopSignTriggerOnce
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &969960279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969960278}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.70696825, w: 0.70724535}
+  m_LocalPosition: {x: 1.7, y: 20.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 828411508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.978}
+--- !u!61 &969960280
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969960278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0397825, y: -0.09261227}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8846817, y: 0.81477547}
+  m_EdgeRadius: 0
 --- !u!1 &976855075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
@@ -5071,6 +6217,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &976855078
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976855075}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.075203, y: -7.5712957}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.54195404, y: 2.293394}
+  m_EdgeRadius: 0
 --- !u!1001 &979401498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5122,6 +6313,10 @@ PrefabInstance:
     - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
       propertyPath: m_Name
       value: TrafficLight Vertical (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -5561,6 +6756,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &1108357777
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108357774}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.208044, y: -10.471832}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.8801155, y: 0.43164444}
+  m_EdgeRadius: 0
 --- !u!1 &1118636073
 GameObject:
   m_ObjectHideFlags: 0
@@ -5829,9 +7069,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1188699365}
   - component: {fileID: 1188699366}
+  - component: {fileID: 1188699367}
   m_Layer: 0
   m_Name: TrafficLight Vertical (2)
-  m_TagString: Untagged
+  m_TagString: TrafficLight_Ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5873,6 +7114,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &1188699367
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188699364}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.2496405, y: -6.313508}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5965195, y: 0.63715744}
+  m_EdgeRadius: 0
 --- !u!1 &1203199724
 GameObject:
   m_ObjectHideFlags: 0
@@ -6400,6 +7686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cone (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+      propertyPath: m_TagString
+      value: Cones
+      objectReference: {fileID: 0}
     - target: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.143379
@@ -6581,6 +7871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6588,6 +7882,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2019642403}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2019642404}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!1 &1421468961
 GameObject:
@@ -6777,6 +8074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6784,6 +8085,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 831176719}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 831176720}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!4 &1424134240 stripped
 Transform:
@@ -6841,6 +8145,10 @@ PrefabInstance:
     - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
       propertyPath: m_Name
       value: TrafficLight Vertical (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -7161,6 +8469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7168,6 +8480,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 788137693}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 788137694}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!1001 &1534352229
 PrefabInstance:
@@ -7220,6 +8535,10 @@ PrefabInstance:
     - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
       propertyPath: m_Name
       value: TrafficLight Vertical (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -7384,6 +8703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cone (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+      propertyPath: m_TagString
+      value: Cones
+      objectReference: {fileID: 0}
     - target: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.122379
@@ -7479,6 +8802,10 @@ PrefabInstance:
     - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_Name
       value: Cone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+      propertyPath: m_TagString
+      value: Cones
       objectReference: {fileID: 0}
     - target: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7857,6 +9184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cone (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+      propertyPath: m_TagString
+      value: Cones
+      objectReference: {fileID: 0}
     - target: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.961006
@@ -8086,6 +9417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8093,6 +9428,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1771501783}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1771501784}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!212 &1685308668 stripped
 SpriteRenderer:
@@ -8203,6 +9541,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &1771501784
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771501781}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.0054355, y: -7.626628}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5817709, y: 2.254839}
+  m_EdgeRadius: 0
 --- !u!1 &1782385241
 GameObject:
   m_ObjectHideFlags: 0
@@ -8784,6 +10167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8791,6 +10178,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 494300899}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 494300900}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!212 &1862585706 stripped
 SpriteRenderer:
@@ -8854,6 +10244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8861,6 +10255,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2034456565}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2034456566}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!1 &1884927633
 GameObject:
@@ -9094,9 +10491,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1961276584}
   - component: {fileID: 1961276585}
+  - component: {fileID: 1961276586}
   m_Layer: 0
   m_Name: TrafficLight Vertical (6)
-  m_TagString: Untagged
+  m_TagString: TrafficLight_Ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9138,6 +10536,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &1961276586
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961276583}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.2455654, y: -6.287607}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.839222, y: 0.48677826}
+  m_EdgeRadius: 0
 --- !u!212 &1962258868 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7679352733748951725, guid: 73982e9c662a440f89e927b2219ed6b0, type: 3}
@@ -9208,11 +10651,133 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &1980927667
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980927664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.079155, y: -7.5273848}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5615082, y: 2.315466}
+  m_EdgeRadius: 0
 --- !u!212 &1988511817 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5319193818751738225, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
   m_PrefabInstance: {fileID: 1414178866}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2019304688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2019304689}
+  - component: {fileID: 2019304690}
+  m_Layer: 0
+  m_Name: SS1 (6)
+  m_TagString: StopSignTriggerOnce
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2019304689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019304688}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.7064064, w: 0.70780647}
+  m_LocalPosition: {x: 25.9, y: 20.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 828411508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.887}
+--- !u!61 &2019304690
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019304688}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0397825, y: -0.09261227}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8846817, y: 0.81477547}
+  m_EdgeRadius: 0
 --- !u!1 &2019642401 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
@@ -9242,6 +10807,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &2019642404
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019642401}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.0243683, y: -7.5091124}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.59809875, y: 2.132761}
+  m_EdgeRadius: 0
 --- !u!1 &2034456563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
@@ -9271,6 +10881,51 @@ MonoBehaviour:
   orangeColor: {r: 1, g: 0.5, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   lowAlpha: 0.2
+--- !u!61 &2034456566
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034456563}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.987788, y: -7.5521307}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6054859, y: 2.239902}
+  m_EdgeRadius: 0
 --- !u!1 &2041341166
 GameObject:
   m_ObjectHideFlags: 0
@@ -9547,6 +11202,10 @@ PrefabInstance:
     - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_Name
       value: Cone (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+      propertyPath: m_TagString
+      value: Cones
       objectReference: {fileID: 0}
     - target: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10000,6 +11659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pedestrian Down
       objectReference: {fileID: 0}
+    - target: {fileID: 6454734636496648379, guid: 0638d2f9ce4f1467aa8327414c45ae37, type: 3}
+      propertyPath: m_TagString
+      value: Pedestrian
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10056,6 +11719,10 @@ PrefabInstance:
     - target: {fileID: 8501990911810130437, guid: 584ea901239384112a5b4187166b0c9c, type: 3}
       propertyPath: m_Name
       value: TrafficLight Vertical (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 584ea901239384112a5b4187166b0c9c, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -10115,6 +11782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal
       objectReference: {fileID: 0}
+    - target: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10122,6 +11793,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 976855077}
+    - targetCorrespondingSourceObject: {fileID: 7731675845243352976, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 976855078}
   m_SourcePrefab: {fileID: 100100000, guid: 81c1fdc7ae1424cb5b0738364acd0cce, type: 3}
 --- !u!1001 &2373081177092820774
 PrefabInstance:
@@ -10134,6 +11808,10 @@ PrefabInstance:
     - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_Name
       value: Cone
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320420009608056222, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
+      propertyPath: m_TagString
+      value: Cones
       objectReference: {fileID: 0}
     - target: {fileID: 6806782432581552601, guid: 52c43d8db7d6e4db3b8491d4e7348081, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10191,6 +11869,10 @@ PrefabInstance:
     - target: {fileID: 1090398612022298265, guid: 70242bef594dc43cd8bbe07c5d07f52b, type: 3}
       propertyPath: m_Name
       value: Pedestrian Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090398612022298265, guid: 70242bef594dc43cd8bbe07c5d07f52b, type: 3}
+      propertyPath: m_TagString
+      value: Pedestrian
       objectReference: {fileID: 0}
     - target: {fileID: 2629163465972149705, guid: 70242bef594dc43cd8bbe07c5d07f52b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10293,6 +11975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Vertical (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 73982e9c662a440f89e927b2219ed6b0, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9000263831686816551, guid: 73982e9c662a440f89e927b2219ed6b0, type: 3}
     m_RemovedGameObjects: []
@@ -10301,6 +11987,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8501990911810130437, guid: 73982e9c662a440f89e927b2219ed6b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1108357776}
+    - targetCorrespondingSourceObject: {fileID: 8501990911810130437, guid: 73982e9c662a440f89e927b2219ed6b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108357777}
   m_SourcePrefab: {fileID: 100100000, guid: 73982e9c662a440f89e927b2219ed6b0, type: 3}
 --- !u!1001 &4384484184459144807
 PrefabInstance:
@@ -10407,6 +12096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Horizontal (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 871678409484138216, guid: d6122bd5d0eb04111b328b27240daa57, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight
+      objectReference: {fileID: 0}
     - target: {fileID: 9103078310204003563, guid: d6122bd5d0eb04111b328b27240daa57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.138363
@@ -10508,6 +12201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pedestrian Right
       objectReference: {fileID: 0}
+    - target: {fileID: 9158683099709278700, guid: 83505c6388a5248ee8fd166047af8034, type: 3}
+      propertyPath: m_TagString
+      value: Pedestrian
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10598,6 +12295,10 @@ PrefabInstance:
     - target: {fileID: 236100227990512142, guid: 648e44646042945c1ab1b62de8662cc5, type: 3}
       propertyPath: m_Name
       value: Pedestrian Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 236100227990512142, guid: 648e44646042945c1ab1b62de8662cc5, type: 3}
+      propertyPath: m_TagString
+      value: Pedestrian
       objectReference: {fileID: 0}
     - target: {fileID: 4504323441034957725, guid: 648e44646042945c1ab1b62de8662cc5, type: 3}
       propertyPath: trafficLight
@@ -10700,6 +12401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight Vertical (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8501990911810130437, guid: 48be13200f5ac42148dda52a65a574af, type: 3}
+      propertyPath: m_TagString
+      value: TrafficLight_Ver
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
@@ -10731,3 +12436,4 @@ SceneRoots:
   - {fileID: 1884927634}
   - {fileID: 1317495112}
   - {fileID: 762263899}
+  - {fileID: 828411508}

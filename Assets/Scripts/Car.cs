@@ -5,6 +5,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 
@@ -17,17 +18,28 @@ public class Car : MonoBehaviour
     [SerializeField] float brakeSpeed = 5f;
     [SerializeField] float turnSpeed = 100f;
 
+    [SerializeField] TrafficLight trafficLight_Ver;
+    [SerializeField] OppositeTrafficLight trafficLight_Hor;
+
     // UnityEvent for displaying messages
     public UnityEvent<string> displayMessageEvent;
+    public UnityEvent<int> updateScoreEvent;
 
     // Reference to the parking progress slider
-    public UnityEngine.UI.Slider parkingProgressSlider;
+    public Slider parkingSlider;
+    public Transform parkingLot;
 
     private int score = 30;
     private float currentSpeed = 0f;
     private float currentTurn = 0f;
 
-    private bool hasParked = false;
+    private bool isParkingCorrect = false;
+    private bool isInsideParkingLot = false;
+    private float parkingSpeed = 0.5f; 
+
+    private int stopCount = 0, StopCountOnce = 0; // Count of stop sign encounters
+    private bool isNearStopSign = false, isNearStopSignOnce = false; // Flag to indicate if the player car is near a stop sign
+    
 
     public Collider2D parkingSpaceCollider;
 
@@ -35,7 +47,13 @@ public class Car : MonoBehaviour
     {
         // Initialize the display message event
         if (displayMessageEvent == null)
+        {
             displayMessageEvent = new UnityEvent<string>();
+        }
+        if (updateScoreEvent == null)
+        {
+            updateScoreEvent = new UnityEvent<int>();
+        }
 
         // Find MessageDisplay object in the scene
         MessageDisplay messageDisplay = FindObjectOfType<MessageDisplay>();
@@ -43,6 +61,7 @@ public class Car : MonoBehaviour
         {
             // Connect the display message event to the message display method
             displayMessageEvent.AddListener(messageDisplay.DisplayMessage);
+            updateScoreEvent.AddListener(messageDisplay.DisplayScore);
         }
         else
         {
@@ -55,8 +74,22 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasParked)
-            return;
+        // Smoothly update the parking slider value
+        if (isInsideParkingLot && parkingSlider != null && !isParkingCorrect)
+        {
+            float targetValue = CalculateParkingPercentage();
+            parkingSlider.value = Mathf.MoveTowards(parkingSlider.value, targetValue, parkingSpeed * Time.deltaTime);
+            if (Mathf.Approximately(parkingSlider.value, targetValue))
+            {
+                isParkingCorrect = targetValue >= 0.85f;
+                if (isParkingCorrect)
+                {
+                    Debug.Log("Car is parked correctly!");
+                    // You can add more actions here when the car is parked correctly
+                }
+            }
+        }
+
 
         // Brake takes priority
         if (Input.GetKey(KeyCode.B))
@@ -117,23 +150,15 @@ public class Car : MonoBehaviour
 
         transform.Rotate(Vector3.forward * -currentTurn);
 
-        // Check if the car is inside the parking lot
-        if (parkingSpaceCollider != null && parkingSpaceCollider.bounds.Contains(transform.position))
+        
+
+        if ((isNearStopSign || isNearStopSignOnce) && Input.GetKeyDown(KeyCode.B)) // Assuming 'S' key is for stopping
         {
-            float distanceToEnter = Vector2.Distance(transform.position, parkingSpaceCollider.bounds.min);
-            float totalDistance = Vector2.Distance(parkingSpaceCollider.bounds.min, parkingSpaceCollider.bounds.max);
-            float parkingProgress = (distanceToEnter / totalDistance) * 100f;
-
-            // Update the parking progress slider value
-            parkingProgressSlider.value = parkingProgress;
-
-            // Check if parking is complete
-            if (parkingProgress >= 100f)
-            {
-                hasParked = true;
-                Debug.Log("Parking complete!");
-            }
+            stopCount++;
+            StopCountOnce++;
+           
         }
+
 
     }
 
@@ -141,42 +166,153 @@ public class Car : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("RoadBoundry"))
         {
-            AddScore(5);
-            displayMessageEvent.Invoke("Collided with road!");
+            UpdateScore(5);
+            updateScoreEvent.Invoke(score);
+            displayMessageEvent.Invoke("You went out of bound!");
         }
         else if (collision.gameObject.CompareTag("Pedestrian"))
         {
-            AddScore(5);
-            displayMessageEvent.Invoke("Collided with pedestrian!");
+            UpdateScore(30);
+            updateScoreEvent.Invoke(score);
+            displayMessageEvent.Invoke("You killed a pedestrian!");
         }
         else if (collision.gameObject.CompareTag("AI"))
         {
-            AddScore(5);
-            displayMessageEvent.Invoke("Collided with AI car!");
+            UpdateScore(5);
+            updateScoreEvent.Invoke(score);
+            displayMessageEvent.Invoke("Collided with AI car! You should be more careful");
         }
+        else if (collision.gameObject.CompareTag("Cones"))
+        {
+            UpdateScore(5);
+            updateScoreEvent.Invoke(score);
+            displayMessageEvent.Invoke("Collided with Construction cones! You should avoid the cones!");
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Pedestrian"))
+        if (other.CompareTag("TrafficLight") && trafficLight_Ver.indexOfCurrColor == 1)
         {
-            AddScore(30);
-            displayMessageEvent.Invoke("Collided with pedestrian!");
+            UpdateScore(5);
+            updateScoreEvent.Invoke(score);
+            displayMessageEvent.Invoke("You violated the traffic light! You should respect the traffic rule");
         }
-        else if (other.CompareTag("TrafficLight"))
+        else if (other.CompareTag("TrafficLight_Ver") && trafficLight_Hor.indexOfCurrColor == 1)
         {
-            AddScore(5);
-            displayMessageEvent.Invoke("Collided with traffic light!");
+            UpdateScore(5);
+            updateScoreEvent.Invoke(score);
+            displayMessageEvent.Invoke("You violated the traffic light! You should respect the traffic rule");
         }
+        else if (other.CompareTag("StopSignTrigger"))
+        {
+            isNearStopSign = true;
+        }
+        else if (other.CompareTag("StopSignTriggerOnce"))
+        {
+
+            isNearStopSignOnce = true;
+        }
+        else if (other.CompareTag("ParkingSpace"))
+        {
+            isInsideParkingLot = true;
+        }
+
+
     }
 
-    void AddScore(int points)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (score > 30)
+        if (other.CompareTag("StopSignTrigger"))
+        {
+            isNearStopSign = false;
+
+            // If the stop count is 2, reset it and allow the player car to continue
+            if (stopCount != 2)
+            {
+                stopCount = 0;
+                // Display a message that the car can continue
+                UpdateScore(5);
+                updateScoreEvent.Invoke(score);
+                displayMessageEvent.Invoke("You violated the Stop Sign. You should have stop Twice (2x)");
+            }
+        }
+
+        else if (other.CompareTag("StopSignTriggerOnce"))
+        {
+            isNearStopSign = false;
+
+            // If the stop count is 2, reset it and allow the player car to continue
+            if (StopCountOnce != 1)
+            {
+                StopCountOnce = 0;
+                // Display a message that the car can continue
+                UpdateScore(5);
+                updateScoreEvent.Invoke(score);
+                displayMessageEvent.Invoke("You violated the Stop Sign. You should have stop Once");
+            }
+        }
+
+        else if (other.CompareTag("ParkingSpace"))
+        {
+            // Reset the parking slider value
+            if (parkingSlider != null)
+            { parkingSlider.value = 0f; }
+            isParkingCorrect = false;
+        }
+
+
+    }
+
+    void UpdateScore(int points)
+    {
+        
         score -= points;
+        if (score <= 0) { score = 0; }
+
+        /*
         // Update the score display or send it wherever you need
         Debug.Log("Current score: " + score);
+        */
     }
+
+    private bool IsCarParkedCorrectly()
+    {
+        // Check if the car is correctly parked in the parking lot
+        if (Vector2.Distance(transform.position, parkingLot.position) < 1.5f)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private float CalculateParkingPercentage()
+    {
+        // Get the size of the parking space
+        Vector2 parkingLotSize = parkingLot.GetComponent<Renderer>().bounds.size;
+
+        // Calculate the car's position relative to the parking space
+        Vector2 carPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 parkingLotPosition = new Vector2(parkingLot.position.x, parkingLot.position.y);
+        Vector2 localCarPosition = carPosition - parkingLotPosition;
+
+        // Calculate the percentage overlap along X and Y axes
+        float percentageX = Mathf.Clamp01(1f - Mathf.Abs(localCarPosition.x) / (parkingLotSize.x / 2f));
+        float percentageY = Mathf.Clamp01(1f - Mathf.Abs(localCarPosition.y) / (parkingLotSize.y / 2f));
+
+        // Get the maximum percentage
+        float percentage = Mathf.Max(percentageX, percentageY);
+
+        if (!isInsideParkingLot)
+        {
+            percentage = Mathf.MoveTowards(percentage, 0f, parkingSpeed * Time.deltaTime);
+        }
+
+        return percentage;
+
+    }
+
 
 
 }

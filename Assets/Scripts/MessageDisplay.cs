@@ -15,6 +15,7 @@ public class MessageDisplay : MonoBehaviour
     {
         // Clear initial message
         messageText.text = "";
+        scoreText.text = "30";
     }
 
     void Update()
