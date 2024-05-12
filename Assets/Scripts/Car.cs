@@ -20,6 +20,7 @@ public class Car : MonoBehaviour
 
     [SerializeField] TrafficLight trafficLight_Ver;
     [SerializeField] OppositeTrafficLight trafficLight_Hor;
+    [SerializeField] CountdownTimer countdownTimer;
 
     // UnityEvent for displaying messages
     public UnityEvent<string> displayMessageEvent;
@@ -27,6 +28,7 @@ public class Car : MonoBehaviour
 
     // Reference to the parking progress slider
     public Slider parkingSlider;
+    public Toggle[] carParkingToogle;
     public Transform parkingLot;
 
     private int score = 30;
@@ -54,7 +56,7 @@ public class Car : MonoBehaviour
         {
             updateScoreEvent = new UnityEvent<int>();
         }
-
+        
         // Find MessageDisplay object in the scene
         MessageDisplay messageDisplay = FindObjectOfType<MessageDisplay>();
         if (messageDisplay != null)
@@ -84,6 +86,7 @@ public class Car : MonoBehaviour
                 isParkingCorrect = targetValue >= 0.85f;
                 if (isParkingCorrect)
                 {
+                    carParkingToogle[0].isOn = true;
                     Debug.Log("Car is parked correctly!");
                     // You can add more actions here when the car is parked correctly
                 }
@@ -159,7 +162,18 @@ public class Car : MonoBehaviour
            
         }
 
+        if ( (carParkingToogle[0].isOn) && (carParkingToogle[1].isOn) &&
+            ( carParkingToogle[2].isOn) && (carParkingToogle[3].isOn) &&
+              (carParkingToogle[4].isOn))
+        {
+            displayMessageEvent.Invoke("You passed the test!");
+            Debug.Log("You passed");
+        }
 
+        if (score <= 0)
+        {
+            displayMessageEvent.Invoke("You failed the test!");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -199,6 +213,10 @@ public class Car : MonoBehaviour
             updateScoreEvent.Invoke(score);
             displayMessageEvent.Invoke("You violated the traffic light! You should respect the traffic rule");
         }
+        else if ((other.CompareTag("TrafficLight") && trafficLight_Ver.indexOfCurrColor != 1) || (other.CompareTag("TrafficLight_Ver") && trafficLight_Hor.indexOfCurrColor != 1))
+        {
+            carParkingToogle[1].isOn = true;
+        }
         else if (other.CompareTag("TrafficLight_Ver") && trafficLight_Hor.indexOfCurrColor == 1)
         {
             UpdateScore(5);
@@ -217,6 +235,10 @@ public class Car : MonoBehaviour
         else if (other.CompareTag("ParkingSpace"))
         {
             isInsideParkingLot = true;
+        }
+        else if (other.CompareTag("Detour"))
+        {
+            carParkingToogle[3].isOn = true;
         }
 
 
@@ -237,6 +259,11 @@ public class Car : MonoBehaviour
                 updateScoreEvent.Invoke(score);
                 displayMessageEvent.Invoke("You violated the Stop Sign. You should have stop Twice (2x)");
             }
+
+            else if (stopCount == 2)
+            {
+                carParkingToogle[2].isOn = true;
+            }
         }
 
         else if (other.CompareTag("StopSignTriggerOnce"))
@@ -251,6 +278,11 @@ public class Car : MonoBehaviour
                 UpdateScore(5);
                 updateScoreEvent.Invoke(score);
                 displayMessageEvent.Invoke("You violated the Stop Sign. You should have stop Once");
+            }
+
+            else if (stopCount == 1)
+            {
+                carParkingToogle[4].isOn = true;
             }
         }
 
@@ -294,8 +326,8 @@ public class Car : MonoBehaviour
 
         // Calculate the car's position relative to the parking space
         Vector2 carPosition = new Vector2(transform.position.x, transform.position.y);
-        Vector2 parkingLotPosition = new Vector2(parkingLot.position.x, parkingLot.position.y);
-        Vector2 localCarPosition = carPosition - parkingLotPosition;
+        // Vector2 parkingLotPosition = new Vector2(parkingLot.position.x, parkingLot.position.y);
+        Vector2 localCarPosition = parkingLot.InverseTransformPoint(transform.position);
 
         // Calculate the percentage overlap along X and Y axes
         float percentageX = Mathf.Clamp01(1f - Mathf.Abs(localCarPosition.x) / (parkingLotSize.x / 2f));
@@ -308,16 +340,16 @@ public class Car : MonoBehaviour
         {
             percentage = Mathf.MoveTowards(percentage, 0f, parkingSpeed * Time.deltaTime);
         }
+        
 
         return percentage;
 
     }
 
 
+    
 
 }
-
-
 
 
 

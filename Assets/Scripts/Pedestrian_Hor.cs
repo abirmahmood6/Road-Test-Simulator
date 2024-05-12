@@ -20,9 +20,11 @@ public class Pedestrian : MonoBehaviour
     private State currentState = State.Waiting;
     private bool movingRight = true;
 
+    /*
     //Timer for destroying the object
     private float destroyTimer = 0f;
     private bool shouldDestroy = false;
+    */
 
     // Update is called once per frame
     void Update()
@@ -40,9 +42,11 @@ public class Pedestrian : MonoBehaviour
                 // If the light is not green and people are crossing, stop them
                 currentState = State.Waiting;
 
+                /*
                 //Start the timer for destruction
                 shouldDestroy = true;
                 destroyTimer = 0f;
+                */
             }
         }
 

@@ -20,10 +20,7 @@ public class Pedestrian_Ver : MonoBehaviour
     private State currentState = State.Waiting;
     private bool movingRight = true;
 
-    //Timer for destroying the object
-    private float destroyTimer = 0f;
-    private bool shouldDestroy = false;
- 
+
 
     // Update is called once per frame
     void Update()
@@ -42,8 +39,8 @@ public class Pedestrian_Ver : MonoBehaviour
                 currentState = State.Waiting;
 
                 //Start the timer for destruction
-                shouldDestroy = true;
-                destroyTimer = 0f;
+                //shouldDestroy = true;
+                //destroyTimer = 0f;
             }
         }
 
