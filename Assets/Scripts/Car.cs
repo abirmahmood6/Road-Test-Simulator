@@ -1,5 +1,6 @@
-/* /* This Car class represent the player car which takes input from the keyboard
- * and move the car accordingly.*/
+/* This Car class represent the player car which takes input from the keyboard
+   and move the car accordingly.
+*/
 
 
 using System.Collections;
@@ -8,6 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Car : MonoBehaviour
 {
@@ -76,6 +78,9 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        CheckGameConditions();
+
         // Smoothly update the parking slider value
         if (isInsideParkingLot && parkingSlider != null && !isParkingCorrect)
         {
@@ -154,25 +159,11 @@ public class Car : MonoBehaviour
         transform.Rotate(Vector3.forward * -currentTurn);
 
         
-
         if ((isNearStopSign || isNearStopSignOnce) && Input.GetKeyDown(KeyCode.B)) // Assuming 'S' key is for stopping
         {
             stopCount++;
             StopCountOnce++;
            
-        }
-
-        if ( (carParkingToogle[0].isOn) && (carParkingToogle[1].isOn) &&
-            ( carParkingToogle[2].isOn) && (carParkingToogle[3].isOn) &&
-              (carParkingToogle[4].isOn))
-        {
-            displayMessageEvent.Invoke("You passed the test!");
-            Debug.Log("You passed");
-        }
-
-        if (score <= 0)
-        {
-            displayMessageEvent.Invoke("You failed the test!");
         }
     }
 
@@ -229,7 +220,6 @@ public class Car : MonoBehaviour
         }
         else if (other.CompareTag("StopSignTriggerOnce"))
         {
-
             isNearStopSignOnce = true;
         }
         else if (other.CompareTag("ParkingSpace"))
@@ -240,7 +230,6 @@ public class Car : MonoBehaviour
         {
             carParkingToogle[3].isOn = true;
         }
-
 
     }
 
@@ -280,7 +269,7 @@ public class Car : MonoBehaviour
                 displayMessageEvent.Invoke("You violated the Stop Sign. You should have stop Once");
             }
 
-            else if (stopCount == 1)
+            else if (StopCountOnce == 1)
             {
                 carParkingToogle[4].isOn = true;
             }
@@ -294,19 +283,12 @@ public class Car : MonoBehaviour
             isParkingCorrect = false;
         }
 
-
     }
 
     void UpdateScore(int points)
-    {
-        
+    { 
         score -= points;
         if (score <= 0) { score = 0; }
-
-        /*
-        // Update the score display or send it wherever you need
-        Debug.Log("Current score: " + score);
-        */
     }
 
     private bool IsCarParkedCorrectly()
@@ -341,14 +323,46 @@ public class Car : MonoBehaviour
             percentage = Mathf.MoveTowards(percentage, 0f, parkingSpeed * Time.deltaTime);
         }
         
-
         return percentage;
-
     }
 
+    bool AllTogglesOn()
+    {
+        foreach (Toggle toggle in carParkingToogle)
+        {
+            if (!toggle.isOn) return false;
+        }
+        return true;
+    }
 
-    
+    void CheckGameConditions()
+    {
+        if (AllTogglesOn())
+        {
+            StartCoroutine(Passed(4));
+        }
+        else if (score <= 0)
+        {
+            StartCoroutine(Failed(4));
+        }
+    }
 
+    IEnumerator Failed (float delay)
+    {
+        //StartCoroutine(delay(3));
+        yield return new WaitForSeconds(3);
+        displayMessageEvent.Invoke("Unfortunately, You failed the test!");
+        yield return new WaitForSeconds(delay);
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    IEnumerator Passed(float delay)
+    {
+        yield return new WaitForSeconds(3);
+        displayMessageEvent.Invoke("Congratulations! You passed the test!");
+        yield return new WaitForSeconds(delay);
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
 }
 
 

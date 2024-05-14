@@ -38,7 +38,7 @@ public class OtherCar : MonoBehaviour
 
     private void Start()
     {
-        //Destroy(gameObject, DestroyTime);
+        Destroy(gameObject, DestroyTime);
     }
 
     // Update is called once per frame

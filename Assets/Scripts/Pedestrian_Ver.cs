@@ -67,13 +67,14 @@ public class Pedestrian_Ver : MonoBehaviour
             }
         }
 
-            /*if (shouldDestroy)
-            {
-                destroyTimer += Time.deltaTime;
-                if (destroyTimer >= 0f)
-                {
-                    Destroy(gameObject);
-                }
-            }*/
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            moveSpeed = 0f;
+            Destroy(gameObject, 3f);
+        }
     }
 }

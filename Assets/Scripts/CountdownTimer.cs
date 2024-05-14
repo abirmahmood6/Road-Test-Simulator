@@ -38,7 +38,14 @@ public class CountdownTimer : MonoBehaviour
         // Convert time to minutes and seconds
         int minutes = Mathf.FloorToInt(currentTime / 60);
         int seconds = Mathf.FloorToInt(currentTime % 60);
-
+        if (minutes <= 0)
+        {
+            minutes = 0;
+        }
+        if (seconds <= 0)
+        {
+            seconds = 0;
+        }
         // Update the UI text with the remaining time
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
