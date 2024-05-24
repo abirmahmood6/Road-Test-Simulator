@@ -8,9 +8,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class OtherCar : MonoBehaviour
+public class OtherCar : Vehicle
 {
-   
+
     // Reference to the line renderer
     public LineRenderer lineRenderer;
 
@@ -36,13 +36,13 @@ public class OtherCar : MonoBehaviour
 
     //safeDistance = 2f;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         Destroy(gameObject, DestroyTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void HandleMovement()
     {
         // Check if there's a line renderer assigned and points on the line
         if (lineRenderer != null && lineRenderer.positionCount > 0)
@@ -59,10 +59,9 @@ public class OtherCar : MonoBehaviour
                 // Move to the next point on the line
                 currentIndex = (currentIndex + 1) % lineRenderer.positionCount;
             }
-            
         }
 
-        //foreach (OppositeTrafficLight trafficLight in trafficLights)
+        // Check traffic lights and car in front
         foreach (OppositeTrafficLight trafficLight in trafficLights)
         {
             if (carInFront != null)
@@ -81,39 +80,8 @@ public class OtherCar : MonoBehaviour
                 }
             }
 
-
-           
             // Continue moving at default speed
             moveSpeed = 2f;
-
         }
     }
-
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Check if the OtherCar collided with an object tagged as "Destination"
-        if (collision.gameObject.CompareTag("Destination"))
-        {
-            // Instantiate explosion prefab at the current position of the OtherCar
-            //Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-
-            // Destroy the OtherCar
-            Destroy(gameObject);
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // Check if the OtherCar collided with an object tagged as "Destination"
-        if (other.CompareTag("Destination"))
-        {
-            // Instantiate explosion prefab at the current position of the OtherCar
-            //Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-
-            // Destroy the OtherCar
-            Destroy(gameObject);
-        }
-    }
-    */
-
 }

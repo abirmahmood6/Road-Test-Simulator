@@ -11,7 +11,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class Car : MonoBehaviour
+public class Car : Vehicle
 {
     // Variables to control car movement
     [SerializeField] float accelerationSpeed = 5f;
@@ -37,18 +37,15 @@ public class Car : MonoBehaviour
     private float currentSpeed = 0f;
     private float currentTurn = 0f;
 
-    private bool isParkingCorrect = false;
-    private bool isInsideParkingLot = false;
-    private float parkingSpeed = 0.5f; 
-
     private int stopCount = 0, StopCountOnce = 0; // Count of stop sign encounters
     private bool isNearStopSign = false, isNearStopSignOnce = false; // Flag to indicate if the player car is near a stop sign
-    
+
 
     public Collider2D parkingSpaceCollider;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         // Initialize the display message event
         if (displayMessageEvent == null)
         {
@@ -58,7 +55,7 @@ public class Car : MonoBehaviour
         {
             updateScoreEvent = new UnityEvent<int>();
         }
-        
+
         // Find MessageDisplay object in the scene
         MessageDisplay messageDisplay = FindObjectOfType<MessageDisplay>();
         if (messageDisplay != null)
@@ -81,90 +78,8 @@ public class Car : MonoBehaviour
 
         CheckGameConditions();
 
-        // Smoothly update the parking slider value
-        if (isInsideParkingLot && parkingSlider != null && !isParkingCorrect)
-        {
-            float targetValue = CalculateParkingPercentage();
-            parkingSlider.value = Mathf.MoveTowards(parkingSlider.value, targetValue, parkingSpeed * Time.deltaTime);
-            if (Mathf.Approximately(parkingSlider.value, targetValue))
-            {
-                isParkingCorrect = targetValue >= 0.85f;
-                if (isParkingCorrect)
-                {
-                    carParkingToogle[0].isOn = true;
-                    Debug.Log("Car is parked correctly!");
-                    // You can add more actions here when the car is parked correctly
-                }
-            }
-        }
 
-
-        // Brake takes priority
-        if (Input.GetKey(KeyCode.B))
-        {
-            if (currentSpeed > 0)
-            {
-                currentSpeed -= brakeSpeed * Time.deltaTime;
-            }
-            else if (currentSpeed < 0) // Braking while reversing
-            {
-                currentSpeed += brakeSpeed * Time.deltaTime;
-            }
-            else
-            {
-                currentSpeed = 0;
-            }
-        }
-        // Acceleration
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            if (currentSpeed < maxSpeed)
-            {
-                currentSpeed += accelerationSpeed * Time.deltaTime;
-            }
-        }
-        // Reverse
-        else if (Input.GetKey(KeyCode.R))
-        {
-            if (currentSpeed > -maxSpeed / 2) // Limit the reverse speed
-            {
-                currentSpeed -= reverseSpeed * Time.deltaTime;
-            }
-        }
-        // Natural deceleration or 'idle' braking when no keys pressed
-        else
-        {
-            if (currentSpeed > 0)
-            {
-                currentSpeed -= brakeSpeed * Time.deltaTime; // Decelerate
-            }
-            else if (currentSpeed < 0)
-            {
-                currentSpeed += brakeSpeed * Time.deltaTime; // Decelerate when reversing
-            }
-            else
-            {
-                currentSpeed = 0;
-            }
-        }
-
-
-        // Apply current speed to move the car
-        transform.Translate(Vector3.up * currentSpeed * Time.deltaTime);
-
-        // Turning left and right
-        float horizontalInput = Input.GetAxis("Horizontal");
-        currentTurn = horizontalInput * turnSpeed * Time.deltaTime;
-
-        transform.Rotate(Vector3.forward * -currentTurn);
-
-        
-        if ((isNearStopSign || isNearStopSignOnce) && Input.GetKeyDown(KeyCode.B)) // Assuming 'S' key is for stopping
-        {
-            stopCount++;
-            StopCountOnce++;
-           
-        }
+        HandleMovement();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -224,7 +139,9 @@ public class Car : MonoBehaviour
         }
         else if (other.CompareTag("ParkingSpace"))
         {
-            isInsideParkingLot = true;
+
+            IsInsideParkingLot = true;
+
         }
         else if (other.CompareTag("Detour"))
         {
@@ -277,16 +194,14 @@ public class Car : MonoBehaviour
 
         else if (other.CompareTag("ParkingSpace"))
         {
-            // Reset the parking slider value
-            if (parkingSlider != null)
-            { parkingSlider.value = 0f; }
-            isParkingCorrect = false;
+            IsInsideParkingLot = false;
+            FindObjectOfType<ParkingManager>().ExitParkingLot(); // Reset the parking logic
         }
 
     }
 
     void UpdateScore(int points)
-    { 
+    {
         score -= points;
         if (score <= 0) { score = 0; }
     }
@@ -299,31 +214,6 @@ public class Car : MonoBehaviour
             return true;
         }
         return false;
-    }
-
-    private float CalculateParkingPercentage()
-    {
-        // Get the size of the parking space
-        Vector2 parkingLotSize = parkingLot.GetComponent<Renderer>().bounds.size;
-
-        // Calculate the car's position relative to the parking space
-        Vector2 carPosition = new Vector2(transform.position.x, transform.position.y);
-        // Vector2 parkingLotPosition = new Vector2(parkingLot.position.x, parkingLot.position.y);
-        Vector2 localCarPosition = parkingLot.InverseTransformPoint(transform.position);
-
-        // Calculate the percentage overlap along X and Y axes
-        float percentageX = Mathf.Clamp01(1f - Mathf.Abs(localCarPosition.x) / (parkingLotSize.x / 2f));
-        float percentageY = Mathf.Clamp01(1f - Mathf.Abs(localCarPosition.y) / (parkingLotSize.y / 2f));
-
-        // Get the maximum percentage
-        float percentage = Mathf.Max(percentageX, percentageY);
-
-        if (!isInsideParkingLot)
-        {
-            percentage = Mathf.MoveTowards(percentage, 0f, parkingSpeed * Time.deltaTime);
-        }
-        
-        return percentage;
     }
 
     bool AllTogglesOn()
@@ -347,7 +237,7 @@ public class Car : MonoBehaviour
         }
     }
 
-    IEnumerator Failed (float delay)
+    IEnumerator Failed(float delay)
     {
         //StartCoroutine(delay(3));
         yield return new WaitForSeconds(3);
@@ -363,6 +253,83 @@ public class Car : MonoBehaviour
         yield return new WaitForSeconds(delay);
         UnityEditor.EditorApplication.isPlaying = false;
     }
+
+    protected override void HandleMovement()
+    {
+        // Brake takes priority
+        if (Input.GetKey(KeyCode.B))
+        {
+            if (currentSpeed > 0)
+            {
+                currentSpeed -= brakeSpeed * Time.deltaTime;
+            }
+            else if (currentSpeed < 0) // Braking while reversing
+            {
+                currentSpeed += brakeSpeed * Time.deltaTime;
+            }
+            else
+            {
+                currentSpeed = 0;
+            }
+        }
+        // Acceleration
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            if (currentSpeed < maxSpeed)
+            {
+                currentSpeed += accelerationSpeed * Time.deltaTime;
+            }
+        }
+        // Reverse
+        else if (Input.GetKey(KeyCode.R))
+        {
+            if (currentSpeed > -maxSpeed / 2) // Limit the reverse speed
+            {
+                currentSpeed -= reverseSpeed * Time.deltaTime;
+            }
+        }
+        // Natural deceleration or 'idle' braking when no keys pressed
+        else
+        {
+            if (currentSpeed > 0)
+            {
+                currentSpeed -= brakeSpeed * Time.deltaTime; // Decelerate
+            }
+            else if (currentSpeed < 0)
+            {
+                currentSpeed += brakeSpeed * Time.deltaTime; // Decelerate when reversing
+            }
+            else
+            {
+                currentSpeed = 0;
+            }
+        }
+
+
+        // Apply current speed to move the car
+        transform.Translate(Vector3.up * currentSpeed * Time.deltaTime);
+
+        // Turning left and right
+        float horizontalInput = Input.GetAxis("Horizontal");
+        currentTurn = horizontalInput * turnSpeed * Time.deltaTime;
+
+        transform.Rotate(Vector3.forward * -currentTurn);
+
+
+        if ((isNearStopSign || isNearStopSignOnce) && Input.GetKeyDown(KeyCode.B)) // Assuming 'S' key is for stopping
+        {
+            stopCount++;
+            StopCountOnce++;
+
+        }
+    }
+
+    public void DisplayMessage(string message)
+    {
+        displayMessageEvent.Invoke(message);
+    }
+
+    public bool IsInsideParkingLot { get; set; }
 }
 
 
